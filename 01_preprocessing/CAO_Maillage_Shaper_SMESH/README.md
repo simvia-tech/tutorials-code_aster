@@ -59,7 +59,7 @@ The course runs in five parts, in the order the original deck presents them:
 
 > **In this part**
 > [Les grands principes](#les-grands-principes) ·
-> [Une CAO pour la simulation numérique](#une-cao-pour-la-simulation-numrique) ·
+> [Une CAO pour la simulation numérique](#une-cao-pour-la-simulation-numerique) ·
 > [Redessiner une CAO existante](#redessiner-une-cao-existante) ·
 > [Modifier une CAO existante](#modifier-une-cao-existante) ·
 > [Les tests](#les-tests) ·
@@ -300,11 +300,11 @@ The course runs in five parts, in the order the original deck presents them:
 
 > **In this part**
 > [Objectif](#objectif) ·
-> [Données](#donnes) ·
+> [Données](#donnees) ·
 > [L'esquisse de la plaque](#lesquisse-de-la-plaque) ·
 > [Les contraintes](#les-contraintes) ·
 > [La face et les groupes](#la-face-et-les-groupes) ·
-> [Le maillage : algorithme et hypothèses](#le-maillage--algorithme-et-hypothses) ·
+> [Le maillage : algorithme et hypothèses](#le-maillage--algorithme-et-hypotheses) ·
 > [Calcul et exportation](#calcul-et-exportation)
 >
 > *Original deck: slides 14–42.*
@@ -896,9 +896,9 @@ The course runs in five parts, in the order the original deck presents them:
 ## Part 5 · Exercice n°2
 
 > **In this part**
-> [Objectif du tube coudé](#objectif-du-tube-coud) ·
-> [Données du tube coudé](#donnes-du-tube-coud) ·
-> [Principe général](#principe-gnral) ·
+> [Objectif du tube coudé](#objectif-du-tube-coude) ·
+> [Données du tube coudé](#donnees-du-tube-coude) ·
+> [Principe général](#principe-general) ·
 > [Analyse](#analyse) ·
 > [Les esquisses du tuyau](#les-esquisses-du-tuyau) ·
 > [Le chemin et le tuyau](#le-chemin-et-le-tuyau) ·

@@ -155,8 +155,16 @@ const err = document.getElementById("err");
 const bar = document.querySelector("#bar i");
 
 // GitHub-style heading anchors, so the in-page links in the READMEs work.
+// Accents are folded to ASCII before the class below drops everything outside
+// [a-z0-9_- ]: a French deck would otherwise anchor "Données" as "donnes" and
+// "nœuds" as "nuds". NFD splits a letter from its accents, \p{M} deletes the
+// accents, and the two ligatures that have no decomposition are spelled out.
+// check_tutorial.py must fold identically — see the note on slug() there.
 const slug = (s) => s.toLowerCase().trim()
-  .replace(/<[^>]+>/g, "").replace(/[^\w\- ]/g, "").replace(/ /g, "-");
+  .replace(/<[^>]+>/g, "")
+  .replace(/œ/g, "oe").replace(/æ/g, "ae")
+  .normalize("NFD").replace(/\p{M}/gu, "")
+  .replace(/[^\w\- ]/g, "").replace(/ /g, "-");
 
 function render(md, base) {
   const code = [], math = [];
