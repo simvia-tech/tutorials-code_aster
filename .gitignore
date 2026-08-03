@@ -7,3 +7,4 @@ CLAUDE.md
 preview.sh
 extract_figures.py
 *.pdf
+.claude/
