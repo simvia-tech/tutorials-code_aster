@@ -7,7 +7,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
 
 <style>
-  :root { color-scheme: light dark; --side: 310px; --accent: #0969da; }
+  :root {
+    color-scheme: light dark; --side: 310px; --accent: #0969da;
+    /* Plate tokens. --plate-tag is the blue of the diagram boxes in the decks. */
+    --plate-ground: #fdfdfb; --plate-line: #c9d1d9; --plate-tag: #0b4ea2;
+  }
   body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 
   #bar { position: fixed; top: 0; left: var(--side); right: 0; height: 3px; z-index: 5; }
@@ -55,12 +59,50 @@
   .markdown-body td[align="center"], .markdown-body th[align="center"] { text-align: center; }
   .markdown-body table sup, .markdown-body table sub { line-height: 0; }
   .markdown-body td { line-height: 1.7; }
+  /* Figures render as drawing plates. The deck's figures are all ink on white,
+     so a plate keeps its own light ground in both themes: on the dark theme a
+     bare PNG glares, on the light one it dissolves into the page. Squared
+     corners set the plates apart from GitHub's rounded chrome, and the source
+     slide number sits in the top edge like the number on a drawing plate.
+     Built here and not in the READMEs because GitHub strips class/style from
+     README HTML; there the same markup stays a centered image and a caption. */
+  .markdown-body .plate {
+    position: relative;
+    margin: 32px 0 36px;
+    border: 1px solid var(--plate-line);
+    background: var(--plate-ground);
+  }
+  .markdown-body .plate-art {
+    padding: 24px 22px 20px;
+    text-align: center;
+    overflow-x: auto;
+  }
+  .markdown-body .plate-art img { vertical-align: middle; background: transparent; }
+  .markdown-body .plate-art img + img { margin-left: 26px; }
+  .markdown-body .plate-no {
+    position: absolute; top: 0; left: 18px; transform: translateY(-50%);
+    padding: 3px 9px 2px;
+    font: 600 11px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: #fff; background: var(--plate-tag);
+  }
+  .markdown-body .plate figcaption {
+    border-top: 1px solid var(--plate-line);
+    padding: 11px 18px 13px;
+    color: #4c555f; font-size: 13.5px; line-height: 1.6; font-style: italic;
+  }
+  /* the caption continues the sentence the plate number starts */
+  .markdown-body .plate figcaption::first-letter { text-transform: capitalize; }
+
   #err { color: #d1242f; font-family: ui-monospace, monospace; white-space: pre-wrap; }
 
   @media (max-width: 900px) {
     nav { position: static; width: auto; height: auto; }
     #bar { left: 0; }
     main { margin-left: 0; padding: 24px 20px 40vh; }
+    .markdown-body .plate-art { padding: 14px 10px 12px; }
+    .markdown-body .plate-no { left: 10px; }
+    .markdown-body .plate figcaption { padding: 10px 12px 12px; }
   }
 </style>
 
@@ -81,6 +123,8 @@
 <script>
 const DOCS = [
   ["Home", "README.md"],
+  ["Presentation of code_aster and salome_meca",
+   "00_foundations/Pres_Code_Aster_Salome_Meca/README.md"],
   ["Local resolution of constitutive laws",
    "00_foundations/Comp_Local_Resolution/README.md"],
 ];
@@ -153,7 +197,40 @@ function render(md, base) {
     w.appendChild(t);
   });
 
+  doc.querySelectorAll('p[align="center"]').forEach(plate);
+
   buildOutline();
+}
+
+// A figure in a README is a centered <p>: the image, then its caption in <em>,
+// opening with the slide it came from. Promote that to a real <figure>, with the
+// caption in a footer and the slide number in the plate's top edge.
+function plate(p) {
+  const imgs = p.querySelectorAll("img");
+  if (!imgs.length) return;
+
+  const fig = document.createElement("figure");
+  fig.className = "plate";
+  const art = document.createElement("div");
+  art.className = "plate-art";
+  // a figure can be a set of views: slide 13 and slide 19 each show two
+  imgs.forEach((i) => art.appendChild(i));
+  fig.appendChild(art);
+
+  const em = p.querySelector("em");
+  if (em) {
+    const cap = document.createElement("figcaption");
+    const parts = em.innerHTML.match(/^\s*(Slides?[^—]*?)\s*—\s*([\s\S]+)$/);
+    cap.innerHTML = parts ? parts[2] : em.innerHTML;
+    if (parts) {
+      const no = document.createElement("span");
+      no.className = "plate-no";
+      no.textContent = parts[1].replace(/\s+/g, " ");
+      fig.insertBefore(no, art);
+    }
+    fig.appendChild(cap);
+  }
+  p.replaceWith(fig);
 }
 
 let marks = [];

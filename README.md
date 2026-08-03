@@ -21,6 +21,7 @@ one directory per tutorial, grouped by topic in numbered directories.
 
 | Topic | Tutorial | Source deck |
 |---|---|---|
+| 00_foundations | [Pres_Code_Aster_Salome_Meca](00_foundations/Pres_Code_Aster_Salome_Meca/) | Presentation of code_aster and salome_meca |
 | 00_foundations | [Comp_Local_Resolution](00_foundations/Comp_Local_Resolution/) | Local resolution of constitutive laws |
 
 ## License
