@@ -365,7 +365,7 @@ column kinematic.
   </tbody>
 </table>
 
-<sub>[▲ back to the four parts](#local-resolution-of-constitutive-laws)</sub>
+<sub>[▲ back to the four parts](#local-resolution-of-constitutive-laws--simvia-web-edition)</sub>
 
 ---
 
@@ -469,7 +469,7 @@ Depending of $F_V$ and $F_\sigma$:
 - **Analytical** solution for some laws (ex: Von Mises isotropic hardening and /
   or linear kinematic)
 
-<sub>[▲ back to the four parts](#local-resolution-of-constitutive-laws)</sub>
+<sub>[▲ back to the four parts](#local-resolution-of-constitutive-laws--simvia-web-edition)</sub>
 
 ---
 
@@ -535,7 +535,7 @@ More than **160 laws** in the 13 stable version.
   the DeBorst method if `1D` is not supported: `ALGO_1D = 'DEBORST'`)
 - **Discrete elements**, shear connections, reinforcements
 
-<sub>[▲ back to the four parts](#local-resolution-of-constitutive-laws)</sub>
+<sub>[▲ back to the four parts](#local-resolution-of-constitutive-laws--simvia-web-edition)</sub>
 
 ---
 
@@ -615,7 +615,7 @@ For certain behaviours, it is better to integrate finely the behaviour
   - No additional keyword is required! (except for plane stresses)
   - Ex: hsnv125a: `VMIS_ISOT_LINE` in 3D and ~~`ITER_INTE_MAXI = 100`~~
 
-<sub>[▲ back to the four parts](#local-resolution-of-constitutive-laws)</sub>
+<sub>[▲ back to the four parts](#local-resolution-of-constitutive-laws--simvia-web-edition)</sub>
 
 ---
 
