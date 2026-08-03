@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>code_aster tutorials</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- GitHub Pages serves this file for any path it cannot resolve. A tutorial
+     directory holds only a README and its figures, so a clean URL such as
+     /00_foundations/Comp_Local_Resolution/ has no file behind it. Route those
+     into the single-page renderer at the site root, which loads a document from
+     ?doc=. -->
+
+<style>
+  body { margin: 15vh auto; max-width: 34em; padding: 0 1.5em;
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+         color-scheme: light dark; }
+</style>
+
+<p id="msg">Redirecting…</p>
+
+<script>
+// A tutorial always lives at <NN_topic>/<Case_Name>/, so matching that pair
+// locates the document and, from where the match starts, the site root ahead
+// of it — no need to hard-code the repository name.
+const hit = location.pathname.match(/\d\d_[^/]+\/[^/]+/);
+if (hit) {
+  const root = location.pathname.slice(0, hit.index) || "/";
+  location.replace(`${root}?doc=${encodeURIComponent(hit[0] + "/README.md")}`);
+} else {
+  const root = location.pathname.match(/^\/[^/]+\//);
+  document.getElementById("msg").innerHTML =
+    `Page not found. <a href="${root ? root[0] : "/"}">Go to the tutorials</a>.`;
+}
+</script>
