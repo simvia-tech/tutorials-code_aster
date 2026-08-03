@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Authoring tools and source decks: kept locally, not published.
+CLAUDE.md
+preview.sh
+extract_figures.py
+*.pdf
