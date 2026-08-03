@@ -1,11 +1,25 @@
-# Local Resolution of Constitutive Laws
+# Local resolution of constitutive laws — Simvia web edition
 
-A conversion of the EDF *code_aster / salome_meca* course material **"Local
-resolution of constitutive laws"** into a readable web page. The content and the
-figures are the original course, unchanged; only the layout is new.
+A Modified Version of **"Local resolution of constitutive laws"**, *code_aster /
+salome_meca* course material authored and published by **EDF S.A.** under the GNU
+Free Documentation License. The content and the figures are the original course,
+unchanged; only the layout is new.
 
-Distributed under the [GNU FDL](http://www.gnu.org/copyleft/fdl.html), like the
-source material. Layout by [Simvia](https://simvia.tech/fr).
+**Authors:** EDF S.A. (the original course material);
+[Simvia](https://simvia.tech/fr) (the modifications).
+
+**Publisher of this Modified Version:** Simvia.
+
+Copyright © 2026 Simvia, for the modifications. The original course material
+carries no copyright notice.
+
+Permission is granted to copy, distribute and/or modify this document under the
+terms of the GNU Free Documentation License, Version 1.3 or any later version
+published by the Free Software Foundation; with no Invariant Sections, no
+Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in
+the section entitled "GNU Free Documentation License".
+
+---
 
 The course runs in four parts, in the order the original deck presents them:
 
@@ -637,3 +651,20 @@ Or feeling happy to have read such a clear tutorial?
 Please, we welcome any feedbacks about *Code_Aster* training materials.
 Do not hesitate to share with us your comments on the
 [*Code_Aster* forum](https://forum.code-aster.org/).
+
+---
+
+## History
+
+- **Local resolution of constitutive laws** — *code_aster / salome_meca* course
+  material, authored and published by EDF S.A. under the GNU Free Documentation
+  License, distributed as a slide deck. Its Title Page states no year.
+- **Local resolution of constitutive laws — Simvia web edition**, 2026, modified
+  and published by Simvia. Converted from the slide deck into a web page: text
+  and figures unchanged, layout new.
+  <https://simvia-tech.github.io/tutorials-code_aster/>
+
+## GNU Free Documentation License
+
+The full text of the license is in [LICENSE](../../LICENSE) at the root of this
+repository.
